@@ -1,5 +1,3 @@
-import { createElement } from "../helper/build.js";
-
 export default class Cubo {
   constructor(dimension, color) {
     this.realDim = dimension;
@@ -7,16 +5,9 @@ export default class Cubo {
     this.dim = this.getDimension();
     this.params = ["uno", "dos", "tres", "cuatro", "cinco", "seis"];
 
-    this.document = [
-      {tag:"div",className:'card-cubo'},
-      {tag:"button",className:'btn-animation',text:'inicio'},
-      {tag:"span",className:'text-dim',text:`${this.realDim}cm`},
-      {tag:"div",className:'cubo'},
-    ]
-
     this.content = this.createElement("div", "card-cubo");
     this.button = this.createElement("button", "btn-animation", "inicio");
-    this.spanDim = this.createElement("span", "text-dim", `${this.realDim}cm`);
+    this.textDimension = this.createElement("span", "text-dim", `${this.realDim}cm`);
     this.cubo = this.createElement("div", "cubo");
     this.cubo.style.setProperty("--dimension-cubo", `${this.dim}px`);
   }
@@ -45,8 +36,9 @@ export default class Cubo {
 
   // DOM
   createFace(face) {
-    let div = createElement({ tag: "div", className: `face ${face}` });
-    div.style.setProperty("background-color", this.color);
+    let div = document.createElement('div')
+    div.classList.add('face',face)
+    div.style.setProperty("background", this.color);
     return div;
   }
 
@@ -63,7 +55,7 @@ export default class Cubo {
     });
 
     this.content.appendChild(this.button);
-    this.content.appendChild(this.spanDim);
+    this.content.appendChild(this.textDimension);
     this.content.appendChild(this.cubo);
 
     return this.content;

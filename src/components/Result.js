@@ -1,3 +1,5 @@
+import { createElement } from "../helper/build.js";
+
 export default class Result {
   constructor(cubo) {
     this.cubo = cubo;
@@ -7,25 +9,17 @@ export default class Result {
       { name: "Perimetro", result: this.cubo.Perimetro() },
       { name: "Diagonal", result: this.cubo.Diagonal() },
     ];
-    
-    this.content = document.createElement("div");
-    this.content.classList.add("card-content");
-  }
-
-  createElement(tag, className, text = "") {
-    let element = document.createElement(tag);
-    element.classList.add(className);
-    if (text) element.textContent = text;
-    return element;
+    this.content = createElement({tag:'div',className:'card-content'})
   }
 
   createResult({ name, result }) {
-    let content = this.createElement("div", "card-content-result");
-    let title = this.createElement("span", "title", name);
-    let resolution = this.createElement("span", "result", result);
+    let content = createElement({tag:'div',className:'card-content-result'})
+    let title = createElement({tag:'span',className:'title',text:name})
+    let resolution = createElement({tag:'span',className:'result',text:result})
 
     content.appendChild(title);
     content.appendChild(resolution);
+
     return content;
   }
 
