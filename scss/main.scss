@@ -1,0 +1,23 @@
+@import 'config','colors','header','inputs','buttons','card';
+
+body{
+  background-color: #333;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace; 
+}
+
+header{
+  width: 100%;
+}
+
+main{
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
+  gap: 1rem;
+  @include mobile{
+    width: 95%;
+    margin: auto;
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cubo</title>
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <meta name="description" content="crear un cubo">
+    <link rel="stylesheet" href="./css/main.css" />
+    <script defer type="module" src="./src/index.js"></script>
+  </head>
+  <body>
+
+    <header>
+      <form class="navegation" data-form-cubo>
+        <div class="input-group">
+          <label class="label">
+            Dimension
+            <input class="primary" type="number" data-input-size />
+          </label>
+        </div>
+        <div class="input-group">
+          <label class="label">
+            Color
+            <div class="group">
+              <input class="picker" type="color" data-input-color/>
+              <input class="primary" type="text" value="#000000" readonly data-input-show-color/>
+            </div>
+          </label>
+        </div>
+        <button data-button-add>Crear</button>
+      </form>
+    </header>
+    <!-- end header -->
+
+    <main data-content-cube></main>
+
+  </body>
+</html>

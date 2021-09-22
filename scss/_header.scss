@@ -1,0 +1,32 @@
+.navegation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.2rem 0;
+  box-shadow: 1px 2px 6px 1px rgba($color: $themeLight, $alpha: 0.4);
+  button {
+    align-self: flex-end;
+  }
+
+  @include tablet{
+    padding: 1rem;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    button {
+      max-width: 300px;
+      align-self: center;
+    }
+    & .input-group {
+      & .label, &.group{
+        width: 100%;
+      }
+    }
+    button{
+      margin: 0;
+      width: 100%;
+    }
+  }
+}

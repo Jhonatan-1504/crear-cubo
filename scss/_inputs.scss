@@ -1,0 +1,39 @@
+input{
+  outline: none;
+  border-radius: .3rem;
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+  border: 1px solid $neutralQuaternaryAlt;
+  &.primary{
+    width: 100%;
+  }
+  &.picker{
+    height: 2.5rem;
+    padding: .2rem;
+    width: 4rem;
+    cursor: pointer;
+  }
+  &:focus{
+    border: 1px solid $neutralLighter;
+  }
+}
+
+.input-group{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  width: 300px;
+  .label{
+    font-size: 1.2rem;
+    margin: 0;
+    .primary{
+      width: 100%;
+    }
+    & > .group{
+      width: 100%;
+      display: flex;
+      gap: .2rem;
+    }
+  }
+}
