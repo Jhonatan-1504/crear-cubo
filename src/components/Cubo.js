@@ -1,3 +1,5 @@
+import { createElement } from "../helper/build.js";
+
 export default class Cubo {
   constructor(dimension, color) {
     this.realDim = dimension;
@@ -5,11 +7,14 @@ export default class Cubo {
     this.dim = this.getDimension();
     this.params = ["uno", "dos", "tres", "cuatro", "cinco", "seis"];
 
-    this.content = this.createElement("div", "card-cubo");
-    this.button = this.createElement("button", "btn-animation", "inicio");
-    this.textDimension = this.createElement("span", "text-dim", `${this.realDim}cm`);
-    this.cubo = this.createElement("div", "cubo");
-    this.cubo.style.setProperty("--dimension-cubo", `${this.dim}px`);
+    this.components = [
+      { tag: "div", className: "card-cubo" },
+      { tag: "button", className: "btn-animation", text: "inicio" },
+      { tag: "span", className: "text-dim", text: `${this.realDim}cm` },
+      { tag: "div", className: "cubo",set:["--face",`${this.dim}px`] },
+    ];
+
+    this.listComponents = this.components.map((item) => createElement(item));
   }
   getDimension() {
     if (this.realDim > 200) return 200;
@@ -36,28 +41,20 @@ export default class Cubo {
 
   // DOM
   createFace(face) {
-    let div = document.createElement('div')
-    div.classList.add('face',face)
-    div.style.setProperty("background", this.color);
-    return div;
-  }
-
-  createElement(tag, className, text = "") {
-    let element = document.createElement(tag);
-    element.classList.add(className);
-    if (text) element.textContent = text;
-    return element;
+    return createElement({tag:'div',className:`face ${face}`, set:['background',this.color]})
   }
 
   Render() {
+    let [content,button,text,cubo] = this.listComponents;
+
     this.params.map((face) => {
-      this.cubo.appendChild(this.createFace(face));
+      cubo.appendChild(this.createFace(face));
     });
 
-    this.content.appendChild(this.button);
-    this.content.appendChild(this.textDimension);
-    this.content.appendChild(this.cubo);
+    content.appendChild(button);
+    content.appendChild(text);
+    content.appendChild(cubo);
 
-    return this.content;
+    return content;
   }
 }

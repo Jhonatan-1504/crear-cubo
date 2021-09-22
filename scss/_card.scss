@@ -29,10 +29,9 @@
     perspective-origin: 0 -600px;
 
     & .cubo {
-      --dimension-cubo: 200px;
-      // --color: #000;
-      width: var(--dimension-cubo);
-      height: var(--dimension-cubo);
+      --face: 200px;
+      width: var(--face);
+      height: var(--face);
       position: relative;
       transform-style: preserve-3d;
       &.active {
@@ -44,25 +43,24 @@
         width: 100%;
         height: 100%;
         border: 5px solid $white;
-        // background-color: var(--color);
         &.uno {
-          transform: translateZ(calc(var(--dimension-cubo) / 2));
+          transform: translateZ(calc(var(--face) / 2));
         }
         &.dos {
-          transform: translateX(calc(var(--dimension-cubo) / 2)) rotateY(90deg);
+          transform: translateX(calc(var(--face) / 2)) rotateY(90deg);
         }
         &.tres {
-          transform: translateZ(calc(var(--dimension-cubo) / 2 * -1));
+          transform: translateZ(calc(var(--face) / 2 * -1));
         }
         &.cuatro {
-          transform: translateX(calc(var(--dimension-cubo) / 2 * -1))
+          transform: translateX(calc(var(--face) / 2 * -1))
             rotateY(90deg);
         }
         &.cinco {
-          transform: translateY(calc(var(--dimension-cubo) / 2 * -1)) rotateX(90deg);
+          transform: translateY(calc(var(--face) / 2 * -1)) rotateX(90deg);
         }
         &.seis {
-          transform: translateY(calc(var(--dimension-cubo) / 2)) rotateX(90deg);
+          transform: translateY(calc(var(--face) / 2)) rotateX(90deg);
         }
       }
     }

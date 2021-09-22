@@ -16,6 +16,6 @@ export default class Card {
     this.content.appendChild(cubo);
     this.content.appendChild(result);
 
-    document.querySelector("[data-content-cube]").appendChild(this.content);
+    document.querySelector("[data-content-cube]").insertAdjacentElement('afterbegin',this.content);
   }
 }
