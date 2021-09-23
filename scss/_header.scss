@@ -18,15 +18,13 @@
     button {
       max-width: 300px;
       align-self: center;
+      margin: 0;
+      width: 100%;
     }
     & .input-group {
       & .label, &.group{
         width: 100%;
       }
-    }
-    button{
-      margin: 0;
-      width: 100%;
     }
   }
 }
